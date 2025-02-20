@@ -14,7 +14,7 @@ export default function Home() {
     const gainValue = parseFloat(gain);
     
     if (!isNaN(feedValue) && !isNaN(gainValue) && gainValue !== 0) {
-      const fer = feedValue / gainValue;
+      const fer = gainValue / feedValue;
       setResult(fer.toFixed(2));
     } else {
       setResult('Invalid Input');
@@ -86,7 +86,7 @@ export default function Home() {
         </div>
          {/* Copyright Footer */}
           <footer className="text-gray-300 text-center">
-            © {new Date().getFullYear()} Joseph Nnachi.
+            © {new Date().getFullYear()} Joseph Nnachi
           </footer>
       </div>
     </div>
