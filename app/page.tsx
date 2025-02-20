@@ -3,14 +3,16 @@
 import { useState } from 'react';
 
 export default function Home() {
-  const [feed, setFeed] = useState('');
-  const [gain, setGain] = useState('');
-  const [result, setResult] = useState(null);
+  const [feed, setFeed] = useState<string>('');
+  const [gain, setGain] = useState<string>('');
+  const [result, setResult] = useState<string | null>(null);
+  
 
-  const handleCalculate = (e) => {
+  const handleCalculate = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const feedValue = parseFloat(feed);
     const gainValue = parseFloat(gain);
+    
     if (!isNaN(feedValue) && !isNaN(gainValue) && gainValue !== 0) {
       const fer = feedValue / gainValue;
       setResult(fer.toFixed(2));
@@ -18,6 +20,7 @@ export default function Home() {
       setResult('Invalid Input');
     }
   };
+  
 
   return (
     <div className="relative flex flex-col justify-between h-screen overflow-hidden">
